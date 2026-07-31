@@ -1,20 +1,32 @@
-import { PiggyBank } from "lucide-react";
+import { useState } from "react";
+import { simulationFormSteps } from "../../../data";
 import { FormStep } from "./FormStep";
 import { StepProgress } from "./Progress";
 
 export function SimulationForm() {
+  const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const stepsNumber = simulationFormSteps.length;
+  const stepData = simulationFormSteps[currentStepIndex];
+
+  const handleNextStep = () => {
+    if (currentStepIndex === stepsNumber - 1) return
+    setCurrentStepIndex(prevStepIndex => prevStepIndex + 1)
+  }
+
+  const handlePreviusStep = () => {
+    if (currentStepIndex === 0) return
+    setCurrentStepIndex(prevStepIndex => prevStepIndex - 1)
+  }
+
   return (
     <>
-      <StepProgress currentStep={1} totalSteps={5} />
+      <StepProgress currentStep={currentStepIndex + 1} totalSteps={stepsNumber} />
       <FormStep
-        Icon={PiggyBank}
-        title="Simulação"
-        question="Qual é o valor do seu investimento?"
-        inputProps={{
-          type: "text",
-          placeholder: "ex: 5.000,00",
-          prefix: "R$",
-        }}
+        key={stepData.id}
+        onBack={handlePreviusStep}
+        onNext={handleNextStep}
+        hideBackButton={currentStepIndex === 0}
+        {...stepData}
       />
     </>
   )
