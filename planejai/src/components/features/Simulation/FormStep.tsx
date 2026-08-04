@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight, type LucideIcon } from "lucide-react";
 import { useState, type SyntheticEvent } from "react";
+import { formatCurrencyMask } from "../../../utils/currency";
 import { Button, Input, type InputProps } from "../../shared";
 
 export interface FormStepProps {
@@ -38,6 +39,15 @@ export function FormStep({
     onNext(inputValue)
   }
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (inputProps.prefix === 'R$') {
+      const formattedValue = formatCurrencyMask(e.target.value);
+      setInputValue(formattedValue);
+      return
+    }
+    setInputValue(e.target.value)
+  }
+
   return (
     <div className="bg-card rounded-2xl p-6 shadow-[4px_4px_18px_0px_rgba(0,0,0,0.2)] sm:p-8">
       <div className="bg-primary mb-4 flex h-15 w-15 items-center justify-center rounded-xl">
@@ -49,7 +59,7 @@ export function FormStep({
         <Input
           {...inputProps}
           value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          onChange={handleInputChange}
         />
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
           {
