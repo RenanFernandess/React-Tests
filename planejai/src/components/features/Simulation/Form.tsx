@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { simulationFormSteps } from "../../../data";
+import { simulationFormSteps } from "@/data";
 import { FormStep } from "./FormStep";
 import { StepProgress } from "./Progress";
 

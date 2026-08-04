@@ -7,7 +7,7 @@ import {
   Wallet
 } from "lucide-react";
 
-import type { FormStepProps } from "../components/features/Simulation/FormStep";
+import type { FormStepProps } from "@/components/features/Simulation/FormStep";
 
 export const simulationFormSteps: FormStepProps[] = [
   {

@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowRight, type LucideIcon } from "lucide-react";
 import { useState, type SyntheticEvent } from "react";
-import { formatCurrencyMask } from "../../../utils/currency";
-import { Button, Input, type InputProps } from "../../shared";
+import { formatCurrencyMask } from "@/utils/currency";
+import { Button, Input, type InputProps } from "@/components/shared";
 
 export interface FormStepProps {
   id: string;

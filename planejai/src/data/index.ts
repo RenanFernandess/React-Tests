@@ -1,4 +1,4 @@
-import { simulationFormSteps } from './simulation';
+import { simulationFormSteps } from '@/data/simulation';
 
 
 export {

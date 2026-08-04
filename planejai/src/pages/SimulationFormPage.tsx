@@ -1,4 +1,4 @@
-import { SimulationForm, SimulationHero } from "../components/features/Simulation";
+import { SimulationForm, SimulationHero } from "@/components/features/Simulation";
 
 export function SimulationFormPage() {
   return (
