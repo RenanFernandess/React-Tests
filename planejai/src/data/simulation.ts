@@ -9,6 +9,8 @@ import {
 
 import type { FormStepProps } from "@/components/features/Simulation/FormStep";
 
+const CURRENCY_PREFIX = 'R$';
+
 export const simulationFormSteps: FormStepProps[] = [
   {
     id: 'income',
@@ -18,7 +20,7 @@ export const simulationFormSteps: FormStepProps[] = [
       'Quanto é depositado na sua conta todo mês (somando todas as fontes)?',
     inputProps: {
       placeholder: 'ex: 5.000,00',
-      prefix: 'R$ ',
+      prefix: CURRENCY_PREFIX,
       maxLength: 12,
     },
   },
@@ -30,7 +32,7 @@ export const simulationFormSteps: FormStepProps[] = [
       'Quanto você gasta mensalmente com custos fixos (aluguel, contas, etc)?',
     inputProps: {
       placeholder: 'ex: 2.000,00',
-      prefix: 'R$',
+      prefix: CURRENCY_PREFIX,
       maxLength: 12,
     },
   },
@@ -41,7 +43,7 @@ export const simulationFormSteps: FormStepProps[] = [
     question: 'Você tem algum valor comprometido com parcelas ou empréstimos mensalmente?',
     inputProps: {
       placeholder: 'ex: 500,00',
-      prefix: 'R$',
+      prefix: CURRENCY_PREFIX,
       maxLength: 12,
     }
   },
@@ -62,7 +64,7 @@ export const simulationFormSteps: FormStepProps[] = [
     question: 'Quanto custa realizar esse sonho?',
     inputProps: {
       placeholder: 'ex: 15.000,00',
-      prefix: 'R$',
+      prefix: CURRENCY_PREFIX,
       maxLength: 12,
     },
   },
