@@ -1,10 +1,12 @@
-import { Button } from './Button'
-import { Header } from './Header'
-import { Input, type InputProps } from './input'
-import { VerticalDivider } from './VerticalDivider'
+import { Button } from './Button';
+import { Header } from './Header';
+import { Input, type InputProps } from './input';
+import { PageHero } from './PageHero';
+import { VerticalDivider } from './VerticalDivider';
 
 export {
-  Button, Header, Input, VerticalDivider
-}
+  Button, Header, Input, PageHero, VerticalDivider
+};
 
-export type { InputProps }
+export type { InputProps };
+
