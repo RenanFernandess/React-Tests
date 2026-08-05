@@ -1,7 +1,7 @@
+import { Button, Input, type InputProps } from "@/components/shared";
+import { formatCurrencyMask } from "@/utils/currency";
 import { ArrowLeft, ArrowRight, type LucideIcon } from "lucide-react";
 import { useState, type SyntheticEvent } from "react";
-import { formatCurrencyMask } from "@/utils/currency";
-import { Button, Input, type InputProps } from "@/components/shared";
 
 export interface FormStepProps {
   id: string;
@@ -31,7 +31,8 @@ export function FormStep({
   onBack,
   onNext
 }: FormStepProps & ActionsButtonsProps) {
-  const [inputValue, setInputValue] = useState('')
+  const seavedInputValue = String(inputProps.value || '');
+  const [inputValue, setInputValue] = useState(seavedInputValue);
 
   const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()

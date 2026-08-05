@@ -4,6 +4,7 @@ import { VerticalDivider } from "./VerticalDivider";
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   prefix?: string;
   suffix?: string;
+  value?: string;
 }
 
 export function Input({ prefix, suffix, ...props }: InputProps) {

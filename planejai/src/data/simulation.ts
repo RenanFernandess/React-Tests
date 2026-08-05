@@ -11,7 +11,7 @@ import type { FormStepProps } from "@/components/features/Simulation/FormStep";
 
 const CURRENCY_PREFIX = 'R$';
 
-export const simulationFormSteps: FormStepProps[] = [
+export const simulationFormSteps = [
   {
     id: 'income',
     Icon: PiggyBank,
@@ -85,4 +85,6 @@ export const simulationFormSteps: FormStepProps[] = [
       emojiIcon: '✨',
     },
   }
-];
+] satisfies FormStepProps[];
+
+export type SimulationFormData = Record<(typeof simulationFormSteps)[number]['id'], string>;
