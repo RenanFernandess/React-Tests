@@ -1,6 +1,6 @@
-import { simulationFormSteps } from '@/data/simulation';
+import { buildAIPrompt } from './iaPrompt';
+import { simulationFormSteps } from './simulation';
 
 
-export {
-  simulationFormSteps
-};
+export { buildAIPrompt, simulationFormSteps };
+
