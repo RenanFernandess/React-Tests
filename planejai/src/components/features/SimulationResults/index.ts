@@ -1,5 +1,5 @@
+import { AIInsightCard } from './AIInsightCard'
 import { SimulationCard } from './Card'
 
-export {
-  SimulationCard
-}
+export { AIInsightCard, SimulationCard }
+

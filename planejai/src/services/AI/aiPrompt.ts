@@ -1,6 +1,6 @@
 import { parseCurrency } from "@/utils/currency";
 import { calcMonthlySavings } from "@/utils/simulation";
-import type { SimulationRecord } from "./simulation";
+import type { SimulationRecord } from "../../data/simulation";
 
 const RESPONSE_SCHEMA = `{
   "feasibility": {

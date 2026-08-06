@@ -1,5 +1,5 @@
 import { HorizontalDivider, PageHero } from "@/components";
-import { SimulationCard } from "@/components/features/SimulationResults";
+import { AIInsightCard, SimulationCard } from "@/components/features/SimulationResults";
 import { useSimulationStorage } from "@/hooks/useSimulationStorege";
 import { calcMonthlySavings } from "@/utils/simulation";
 import { CalendarClock, CreditCardIcon, Goal, Landmark, PiggyBank, Wallet } from "lucide-react";
@@ -7,8 +7,8 @@ import { useParams } from "react-router-dom";
 
 export function SimulationResultPage() {
   const { id } = useParams<{ id: string }>();
-  const { getFormDataById } = useSimulationStorage();
-  const data = id ? getFormDataById(id) : null;
+  const { getSimulationDataById } = useSimulationStorage();
+  const data = id ? getSimulationDataById(id) : null;
 
   if (!data) {
     return (
@@ -62,9 +62,7 @@ export function SimulationResultPage() {
         />
       </div>
       <div className="grid gap-6 lg:grid-cols-3">
-        <div className="bg-card order-2 rounded-2xl p-6 shadow-[4px_4px_18px_0px_rgba(0,0,0,0.2)] lg:order-1 lg:col-span-2">
-          Painel de Insights
-        </div>
+        <AIInsightCard simulationId={data.id} />
         <div className="order-1 flex flex-col gap-6 items-start lg:order-2 shadow-[4px_4px_18px_0px_rgba(0,0,0,0.2)] rounded-2xl p-6">
           <p className="mb-4 text-lg font-semibold tracking-widest uppercase text-foreground">
             Resumo das suas finanças
