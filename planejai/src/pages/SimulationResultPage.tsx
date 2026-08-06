@@ -1,21 +1,29 @@
 import { HorizontalDivider, PageHero } from "@/components";
 import { SimulationCard } from "@/components/features/SimulationResults";
-import type { SimulationFormData } from "@/data/simulation";
+import { useSimulationStorage } from "@/hooks/useSimulationStorege";
 import { calcMonthlySavings } from "@/utils/simulation";
 import { CalendarClock, CreditCardIcon, Goal, Landmark, PiggyBank, Wallet } from "lucide-react";
-
-const mock: SimulationFormData = {
-  income: 'R$ 5.000,00',
-  expenses: 'R$ 2.000,00',
-  debts: 'R$ 500,00',
-  goalName: 'Viagem para o Japão',
-  goalAmount: 'R$ 15.000,00',
-  goalDeadline: '12',
-}
-
+import { useParams } from "react-router-dom";
 
 export function SimulationResultPage() {
-  const data: SimulationFormData = mock;
+  const { id } = useParams<{ id: string }>();
+  const { getFormDataById } = useSimulationStorage();
+  const data = id ? getFormDataById(id) : null;
+
+  if (!data) {
+    return (
+      <main className="mx-auto max-w-6xl px-4 py-10 sm:py-14">
+        <PageHero
+          title="Resultado da simulação"
+          subtitle="Com base no seu perfil financeiro e objetivos."
+        />
+        <p className="text-center text-lg font-semibold tracking-widest uppercase text-foreground">
+          Nenhum resultado encontrado para o ID fornecido.
+        </p>
+      </main>
+    )
+  }
+
   const monthlySavings = calcMonthlySavings(data);
   const formattedMonthlySavings = monthlySavings.toLocaleString(
     "pt-BR",

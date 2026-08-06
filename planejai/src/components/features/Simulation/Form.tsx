@@ -8,7 +8,7 @@ import { StepProgress } from "./Progress";
 
 export function SimulationForm() {
   const navegate = useNavigate();
-  const [saveFormData] = useSimulationStorage();
+  const { saveFormData } = useSimulationStorage();
   const [formData, setFormData] = useState<SimulationFormData>({});
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
@@ -19,8 +19,8 @@ export function SimulationForm() {
     const updatedFormData = { ...formData, [stepData.id]: inputValue };
 
     if (currentStepIndex === stepsNumber - 1) {
-      saveFormData(updatedFormData);
-      navegate('/resultado');
+      const id = saveFormData(updatedFormData);
+      navegate(`/resultado/${id}`);
       return;
     }
     setCurrentStepIndex(prevStepIndex => prevStepIndex + 1)
